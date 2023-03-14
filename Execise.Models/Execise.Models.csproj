@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Blazored.Modal" Version="7.1.0" />
+    <PackageReference Include="Syncfusion.Blazor" Version="20.3.0.60" />
+  </ItemGroup>
+
+</Project>

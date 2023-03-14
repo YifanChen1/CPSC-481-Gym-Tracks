@@ -1,0 +1,97 @@
+
+
+<input id="searchbar" placeholder="Search Exercise" class="search text" type="text" value="@searchString" @oninput="search_exercise" />
+
+<DiscoveryExerciseComponent exerciseList="@filteredList"></DiscoveryExerciseComponent>
+
+@if (searchString == "" || searchString == null)
+{
+    <div class="grid-workout-container">
+        <div class="grid-box">
+            <div class="content">
+                <a href="/allExercises"> ALL </a>
+            </div>
+        </div>
+        <div class="grid-box">
+            <div class="content">
+                <a href="/chestExercises"> CHEST </a>
+            </div>
+        </div>
+        <div class="grid-box">
+            <div class="content">
+                <a href="/backExercises"> BACK </a>
+            </div>    
+        </div>
+        <div class="grid-box"> 
+            <div class="content">
+                <a href="/armExercises"> ARMS </a>
+            </div>    
+        </div>
+        <div class="grid-box"> 
+            <div class="content">
+                <a href="/legExercises"> LEGS</a>
+            </div>
+        </div>
+        <div class="grid-box">
+            <div class="content">
+                <a href="/coreExercises"> CORE</a>
+            </div>
+        </div>
+    </div>
+}
+
+
+
+
+@code{
+    String test_string { get; set; } = "";
+
+    List<string> allExercises = new List<string>()
+        {
+            "Bench Press",
+            "Bicep Curl",
+            "Calf Raise",
+            "Deadlift",
+            "Dips",
+            "Dumbell Flys",
+            "L-sit",
+            "Lat Pull-Down",
+            "Leg raise",
+            "Lunge",
+            "Plank",
+            "Pull up",
+            "Push up",
+            "Seated Row",
+            "Sit up",
+            "Squat"
+        };
+
+    List<string> filteredList = new List<string>();
+
+    private string? searchString;
+    
+    //take value out of event arg
+    public void search_exercise(ChangeEventArgs e)
+    {
+        
+        searchString = e?.Value?.ToString();
+
+        string lowerCaseSearch = searchString.ToLower();
+
+        filteredList.Clear();
+
+        if (lowerCaseSearch == "")
+        {
+            return;
+        }
+
+        for (int exercise = 0; exercise < allExercises.Count; exercise++)
+        {
+            if (allExercises[exercise].ToLower().Contains(lowerCaseSearch)){
+                filteredList.Add(allExercises[exercise]);
+            }
+        }
+
+    }
+
+}

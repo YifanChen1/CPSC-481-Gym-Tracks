@@ -1,0 +1,36 @@
+﻿@page "/achievement"
+@inject IModalService modal
+<TitleComponent title="ABOUT YOU" />
+
+<div class="main-container">
+    <div class="content-container">
+        <div class="container">
+            <span>Achievements</span>
+        </div>
+        <div class="date-container">
+            <span>March</span>
+        </div>
+        <div class="flex-container">
+            <div @onclick="@(()=>modal.Show<Popup>("March 26th"))" class="circle"><img src="images/benchimg.png"/> 250 </div>
+            <div class="circle"><img src="images/dumbbellcurlimg.png" /> 30 </div>
+            <div class="circle"><img src="images/benchimg.png" /> 200 </div>
+            <div class="circle"><img src="images/benchimg.png" /> 100 </div>
+            <div class="circle"><img src="images/benchimg.png"/> 100 </div>
+            <div class="circle"><img src="images/deadliftimg.png" /> 300 </div>
+        </div>
+        <div class="date-container">
+            <span>February</span>
+            <hr />
+        </div>
+        <div class="flex-container">
+            <div class="circle"><img src="images/medal.png" /> 150 </div>
+            <div class="circle"><img src="images/medal.png" /> 150 </div>
+            <div class="circle"><img src="images/medal.png" /> 150 </div>
+
+        </div>
+    </div>
+</div>
+
+@code {
+    
+}

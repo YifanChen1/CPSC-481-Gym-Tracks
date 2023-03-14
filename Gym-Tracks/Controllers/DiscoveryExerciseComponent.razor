@@ -1,0 +1,53 @@
+<div class="exercises">
+    @for (int i = 0; i < exerciseList.Count; i++)
+    {
+        var btnNum = i;
+        <div class="exercise">
+            <span class="exercise-name">@exerciseList[i]</span>
+            <button type="button"
+                class="@(Exercises.Any(exercise => exercise.getExerciseName().Equals(exerciseList[btnNum])) ? "selected" : "")"
+                @onclick="() => select(exerciseList[btnNum])">@(Exercises.Any(exercise =>
+            exercise.getExerciseName().Equals(exerciseList[btnNum])) ?
+            "Added To Workout" : "Add to workout")</button>
+        </div>
+
+    }
+</div>
+
+
+@code {
+
+    [Inject]
+    private IAppService AppService { get; set; }
+
+    [Parameter]
+    public List<string> exerciseList { get; set; } = new List<string>();
+
+    private List<Exercise> Exercises { get; set; } = new List<Exercise>();
+
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        this.Exercises = AppService.GetExercises();
+        Console.WriteLine(Exercises.Count);
+    }
+
+    HashSet<string> selectedExercises = new HashSet<string>();
+
+    public void select(string exercise)
+    {
+        if (AppService.HasExercise(exercise))
+        {
+            Console.WriteLine("remove!");
+            AppService.RemoveExercise(exercise);
+            this.Exercises = AppService.GetExercises();
+        }
+        else
+        {
+            selectedExercises.Add(exercise);
+            AppService.AddExercise(exercise);
+            this.Exercises = AppService.GetExercises();
+        }
+    }
+}

@@ -1,0 +1,60 @@
+﻿<div class="exercises">
+    @for (int i = 0; i < routineList.Count; i++)
+    {
+        var btnNum = i;
+        <div class="exercise">
+            <span class="exercise-name">
+                <a href="/editRoutine">
+                    @routineList[i]
+                </a>
+            </span>
+            <button type="button"
+                class="@(Routines.Any(routine => routine.getRoutineName().Equals(routineList[btnNum])) ? "selected" : "")"
+                @onclick="() => select(routineList[btnNum])">
+                @(Routines.Any(routine =>
+            routine.getRoutineName().Equals(routineList[btnNum])) ?
+            "Added To Workout" : "Add to workout")
+            </button>
+        </div>
+    }
+</div>
+
+
+
+@code {
+    [Inject]
+    private IAppService AppService { get; set; }
+
+    [Parameter]
+    public List<string> routineList { get; set; } = new List<string>();
+
+    private List<Routine> Routines { get; set; } = new List<Routine>();
+
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        this.Routines = AppService.GetRoutines();
+    }
+
+    HashSet<string> selectedExercises = new HashSet<string>();
+
+    public void select(string routine)
+    {
+        if (AppService.HasRoutine(routine))
+        {
+            AppService.RemoveExercise("Shoulder Press");
+            AppService.RemoveExercise("Bench Press");
+            AppService.RemoveRoutine(routine);
+            this.Routines = AppService.GetRoutines();
+        }
+        else
+        {
+            selectedExercises.Add(routine);
+            AppService.AddExercise("Shoulder Press");
+            AppService.AddExercise("Bench Press");
+            AppService.AddRoutine(routine);
+            this.Routines = AppService.GetRoutines();
+        }
+    }
+}

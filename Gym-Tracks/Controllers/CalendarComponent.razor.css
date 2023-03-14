@@ -1,0 +1,44 @@
+.dynamic-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+.calendar-controls {
+    width: 100%;
+    padding-top: 5%;
+    padding-bottom: 3%;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.calendar-controls .center-btn {
+    width: 143px;
+    height: 40px;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 29px;
+    /* identical to box height */
+
+    text-align: center;
+
+    color: #000000;
+}
+
+.calendar-controls button {
+    width: 44px;
+    height: 39.58px;
+    left: 45px;
+    top: 86.71px;
+
+    background: #afff02;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}

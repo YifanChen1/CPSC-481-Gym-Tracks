@@ -1,0 +1,47 @@
+﻿
+.exercises {
+    overflow-y: scroll;
+    width: 100%;
+}
+
+.exercise {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 97%;
+    height: 85px;
+    flex: 1;
+    background: #383838;
+    border-bottom: 1px solid #ffffff;
+}
+
+.exercise-name {
+    font-weight: 700;
+    font-size: 22px;
+    color: #ffffff;
+}
+    .exercise-name a {
+        text-decoration: none;
+        color: inherit;
+    }
+
+.exercise button {
+    width: 92px;
+    height: 39px;
+    background: #afff02;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+    border: none;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 16px;
+    text-align: center;
+}
+
+    .exercise button.selected {
+        background: rebeccapurple;
+    }
+

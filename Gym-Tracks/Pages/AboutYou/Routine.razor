@@ -1,0 +1,32 @@
+@page "/routine"
+@using Gym_Tracks.Controllers.RoutineComponents
+@inherits RoutineBase
+
+<TitleComponent title="ABOUT YOU" />
+
+<div class="main-container">
+    <div class="content-container">
+        <div class="exercise-type-container">
+            <span>ROUTINES</span>
+        </div>
+        <RComponent routineList="@routinelist"></RComponent>
+        <div class="dropdown">
+            <button class="add-btn">
+                <img src="images/plus.png"
+                     alt="Add Img" />
+            </button>
+            <div class="dropdown-content">
+                <a href="/newroutine">Create Routine</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+    List<string> routinelist = new List<string>()
+    {
+        "Push-Day",
+        "Pull-Day",
+    };
+  
+}

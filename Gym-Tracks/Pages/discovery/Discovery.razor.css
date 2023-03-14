@@ -1,0 +1,25 @@
+.main-container {
+    position: relative;
+    height: 725px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.content-container {
+    position: relative;
+    padding: 22px;
+    margin: 26px 0;
+    flex: 1; /* Allows item to grow inside of main container */
+    
+    background: #383838;
+    box-shadow: inset 0px 0px 4px 1px rgba(0, 0, 0, 0.25);
+
+    justify-content: start;
+    overflow-y: scroll;
+}
+
+a {
+    height: 100%;
+}

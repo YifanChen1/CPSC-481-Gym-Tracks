@@ -1,0 +1,69 @@
+﻿@page "/about-you"
+@inject IModalService modal
+
+<div class="title">
+    <span>ABOUT YOU</span>
+
+    <div>
+        <div class="dropdown" >
+            <button class="dropbtn"><img src="images/bell.png" /></button>
+            <div class="dropdown-content">
+                <a href="/achievement">You set a new Personal Best in Squats!</a>
+                <a href="/activity">You have worked out 55 minutes today!</a>
+                <a href="/routine">Its been a week since your last push day.</a>
+            </div>
+        </div>
+        <a href="/settings"><img src="images/settings.png" /> </a>
+    </div>
+</div>
+
+<div class="main-container">
+    <div class="content-container">
+        <div class="card routines-card">
+            <div class="header">
+                <span>
+                    <a href="/routine"> ROUTINES </a>
+                </span>
+                <a href="/routine"><img src="images/right-arrow.png" alt="arrow" /> </a>
+            </div>
+            <div class="buttons">
+                <div class="button">
+                    <span>PUSH DAY</span>
+                </div>
+                <div class="button">
+                    <span>PULL DAY</span>
+                </div>
+                <div class="button">
+                    <span>CORE DAY</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="card achievements-card">
+            <div class="header">
+                <span> <a href="/achievement"> ACHIEVEMENTS </a> </span>
+                <a href="/achievement"> <img src="images/right-arrow.png" alt="arrow" /> </a>
+            </div>
+            <div class="buttons">
+                <div @onclick="@(()=>modal.Show<Popup>("March 26th"))" class="button">
+                    <span><img src="images/benchimg.png"/></span>
+                </div>
+                <div class="button">
+                    <span><img src="images/dumbbellcurlimg.png" /></span>
+                </div>
+                <div class="button">
+                    <span><img src="images/benchimg.png"/></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="card progress-card">
+            <div id="simple-header" class="header">
+                <span> <a href="/progress"> PROGRESS </a> </span>
+                <a href="/progress"> <img src="images/right-arrow.png" alt="arrow" /> </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code { }

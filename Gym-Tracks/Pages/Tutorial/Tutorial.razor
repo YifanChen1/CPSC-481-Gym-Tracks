@@ -1,0 +1,42 @@
+@page "/tutorial"
+
+<div class="tutorial" @onclick="clickHandler"><img src="@(tutorialImgList[imgIndex])"/></div>
+
+
+@code
+{
+    List<string> tutorialImgList = new List<string>()
+        {
+            "images/tutorial/welcome.png",
+            "images/tutorial/workout0.png",
+            "images/tutorial/workout1.png",
+            "images/tutorial/discovery2.png",
+            "images/tutorial/discovery3.png",
+            "images/tutorial/discovery4.png",
+            "images/tutorial/discovery5.png",
+            "images/tutorial/workout6.png",
+            "images/tutorial/workout7.png",
+            "images/tutorial/workout8.png",
+            "images/tutorial/aboutYou9.png",
+            "images/tutorial/workout10.png",
+            "images/tutorial/activity11.png",
+            "images/tutorial/activity12.png",
+            "images/tutorial/aboutYou13.png",
+            "images/tutorial/aboutYou13b.png",
+            "images/tutorial/aboutYou14.png",
+            "images/tutorial/aboutYou15.png",
+            "images/tutorial/aboutYou16.png",
+            "images/tutorial/aboutYou17.png",
+            "images/tutorial/goodbye.png"
+        };
+ 
+    int imgIndex=0;
+
+    public void clickHandler()
+    {
+        if (imgIndex < tutorialImgList.Count() - 1)
+        {
+            imgIndex++;
+        }
+    }
+}

@@ -1,0 +1,22 @@
+@page "/activity"
+
+
+<TitleComponent title="Activity"/>
+
+<div class="main-container">
+    <div class="content-container">
+        <CalendarComponent/>
+    </div>
+</div>
+
+@code {
+    [Inject]
+    private IAppService AppService { get; set; }
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+
+
+    }
+}

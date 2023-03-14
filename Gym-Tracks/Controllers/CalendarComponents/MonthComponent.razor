@@ -1,0 +1,100 @@
+﻿@inject NavigationManager NavManager
+
+<div class="calendar">
+    <div class="square">Sun</div>
+    <div class="square">Mon</div>
+    <div class="square">Tues</div>
+    <div class="square">Wed</div>
+    <div class="square">Thur</div>
+    <div class="square">Fri</div>
+    <div class="square">Sat</div>
+
+    @for (int i = 0; i < start_boxes; i++)
+    {
+        <SquareComponent activity_color="none"  />
+    }
+    @for (int i = 1; i <= num_days; i++)
+    {
+        <SquareComponent day="@i" activity_color=@activity[i-1] OnClickCallback="@redirect" SetSelectedDay="SetSelectedDay" />
+    }
+    @for (int i = 0; i < end_boxes; i++)
+    {
+        <SquareComponent activity_color="none" />
+    }
+</div>
+
+@code {
+    [Parameter]
+    public int num_days { get; set; } = 0;
+
+    [Parameter]
+    public string start_day { get; set; } = "sunday";
+
+    private int start_boxes = 0;
+    private int end_boxes = 0;
+    private string[] activity;
+
+    [Parameter]
+    public int month { get; set; } = 01;
+    [Parameter]
+    public int year { get; set; } = 2022;
+    private int day = 1;
+
+
+
+
+
+    protected override void OnParametersSet()
+    {
+        base.OnParametersSet();
+        
+        if (start_day == "monday") start_boxes = 1;
+        else if (start_day == "tuesday") start_boxes = 2;
+        else if (start_day == "wednesday") start_boxes = 3;
+        else if (start_day == "thursday") start_boxes = 4;
+        else if (start_day == "friday") start_boxes = 5;
+        else if (start_day == "saturday") start_boxes = 6;
+        else start_boxes = 0;
+
+        end_boxes = 7 - start_boxes;
+        generateActivity();
+    }
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        generateActivity();
+    }
+
+    private void generateActivity()
+    {
+        activity = new string[31];  // reset array
+        string[] colors = { "#95F985", "#4DED30", "#26D701", "#00C301", "#00AB08" };
+
+        Random rand = new Random();
+        for (int i = 0; i < activity.Length; i++)
+        {
+            int rand_num = rand.Next(0, 4); //25% chance
+            if (rand_num == 0)
+            {
+                int rand_color = rand.Next(0, 5);
+                activity[i] = colors[rand_color];
+            }
+            else
+                activity[i] = "none";
+        }
+    }
+
+    private void redirect(){
+        string url = String.Format("/logs/{0}/{1}/{2}", year, month, day);
+        NavManager.NavigateTo(url);
+    }
+
+    private void SetSelectedDay(int value){
+        day = value;
+        string url = String.Format("/activity/{0}/{1}/{2}", year, month, day);
+        NavManager.NavigateTo(url);
+    }
+
+
+}

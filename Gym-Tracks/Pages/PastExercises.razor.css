@@ -1,0 +1,65 @@
+.main-container {
+    position: relative;
+    height: 725px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.content-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+
+    width: 348px;
+    height: 678px;
+    position: relative;
+    padding: 22px;
+    margin: 26px 0;
+    
+    flex: 1; /* Allows item to grow inside of main container */
+
+    background: #383838;
+    box-shadow: inset 0px 0px 4px 1px rgba(0, 0, 0, 0.25);
+}
+
+
+.calendar-controls {
+    width: 100%;
+    padding-top: 5%;
+    padding-bottom: 3%;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.calendar-controls .center-btn {
+    width: 94px;
+    height: 40px;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 29px;
+    /* identical to box height */
+
+    text-align: center;
+
+    color: #000000;
+}
+
+.calendar-controls button {
+    width: 44px;
+    height: 39.58px;
+    left: 45px;
+    top: 86.71px;
+
+    background: #afff02;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+

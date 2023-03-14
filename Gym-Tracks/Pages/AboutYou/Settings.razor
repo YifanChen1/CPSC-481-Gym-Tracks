@@ -1,0 +1,46 @@
+﻿@page "/settings"
+
+<TitleComponent title="ABOUT YOU"/>
+
+
+
+<div class="main-container">
+    <div class="content-container">
+        <div class="settings-type-container">
+            <span>SETTINGS</span>
+        </div>
+        <div class="settingsbox">
+            <span class="settingsbox-name">Tutorial</span>
+            <button type="button" ><a href="/tutorial">Start</a></button>
+        </div>
+        <!--
+        <div class="settingsbox">
+            <spanclass="settingsbox-name">Stretch Reminder</span>
+            <label class="switch">
+                <input type="checkbox">
+                <span class="slider round"></span>
+            </label>
+        </div>
+
+        <div class="settingsbox">
+            <span class="settingsbox-name">Routine Defaults</span>
+            <div class="custom-select" style="width:100px;">
+            <select>
+                <option value="0">Routine</option>
+                <option value="1">Last Workout</option>
+            </select>
+            </div>
+        </div>
+        -->
+        <div>
+            <span class="settingsbox-name"> Default Page</span>
+        </div>
+        <div class="settingsbox">
+     
+            <button onclick="SelectFunction"><img src="/images/activity.png" width="30" height="30"></button>
+            <button onclick="SelectFunction"><img src="/images/discover.png" width="30" height="30"></button>
+            <button onclick="SelectFunction"><img src="/images/logs.png" width="30" height="30"></button>
+            <button onclick="SelectFunction"><img src="/images/about-you.png" width="30" height="30"></button>
+        </div>
+    </div>
+</div>

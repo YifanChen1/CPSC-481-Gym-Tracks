@@ -1,0 +1,25 @@
+@page "/armExercises"
+
+   
+
+<TitleComponent title="Discover"/>
+
+<div class="main-container">
+    <div class="content-container">
+        <div class="exercise-type-container">
+            <span>ARM EXERCISES</span>
+        </div>
+        <DiscoveryExerciseComponent exerciseList="@armExercises"></DiscoveryExerciseComponent>
+    </div>
+</div>
+
+@code {
+    List<string> armExercises = new List<string>()
+        {
+            "Bicep Curl",
+            "Dips",
+            "Pull up",
+            "Push up"
+                     
+        };
+}

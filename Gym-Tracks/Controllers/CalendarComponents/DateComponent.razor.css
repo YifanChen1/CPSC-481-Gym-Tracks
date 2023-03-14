@@ -1,0 +1,13 @@
+﻿.past-exercises {
+    position: relative;
+    box-sizing: content-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-content: center;
+    
+    width: 100%;
+    padding-right: 10px;
+    overflow-y: scroll;
+}
+

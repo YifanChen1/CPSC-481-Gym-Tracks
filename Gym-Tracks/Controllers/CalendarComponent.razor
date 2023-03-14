@@ -1,0 +1,76 @@
+
+
+
+<div class="calendar-controls">
+    <button onclick="@prev">&lt</button>
+    <button class="center-btn" onclick="@changeView">@center_btn_content</button>
+    <button onclick="@next">&gt</button>
+</div>
+
+<div class="dynamic-container">
+    <DynamicComponent Type="@currentComponentType" Parameters="@dynamic_params"/>
+</div>
+
+
+
+
+
+
+
+@code {
+    private Dictionary<string, object> dynamic_params = new Dictionary<string, object>();
+    private string center_btn_content = "";
+    private int i;
+    //private int state = 0; //0 = month view; 1 = months view; 2 = years view
+
+    private Type currentComponentType = typeof(MonthComponent);
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        currentComponentType = typeof(MonthComponent);
+        dynamic_params.Add("num_days", 31);
+        dynamic_params.Add("start_day", "thursday");
+        i = 0;
+        center_btn_content = "Jan 2022";
+    }
+
+    private void next()
+    {
+        String[] months = {"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"};
+        String[] days_of_week = { "sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday" };
+
+        // Sets random number of days and start day 
+        Random rnd = new Random();
+        dynamic_params["num_days"] = rnd.Next(30,32);
+        dynamic_params["start_day"] = days_of_week[rnd.Next(0, 7)];
+        i++;
+        if (i >= 12)
+            i = 0;
+        center_btn_content = months[i];
+    }
+
+    private void prev()
+    {
+        String[] months = {"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"};
+        String[] days_of_week = { "sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday" };
+
+        // Sets random number of days and start day 
+        Random rnd = new Random();
+        dynamic_params["num_days"] = rnd.Next(30,32);
+        dynamic_params["start_day"] = days_of_week[rnd.Next(0, 7)];
+        i++;
+        if (i >= 12)
+            i = 0;
+        center_btn_content = months[i];
+    }
+
+    private void changeView()
+    {
+        currentComponentType = typeof(MonthsComponent);
+        center_btn_content = "2022";
+        dynamic_params.Clear();
+    }
+
+    
+}

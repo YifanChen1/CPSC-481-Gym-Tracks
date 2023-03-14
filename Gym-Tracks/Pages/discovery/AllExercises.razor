@@ -1,0 +1,36 @@
+@page "/allExercises"
+
+   
+
+<TitleComponent title="Discover"/>
+
+<div class="main-container">
+    <div class="content-container">
+        <div class="exercise-type-container">
+            <span>All EXERCISES</span>
+        </div>
+        <DiscoveryExerciseComponent exerciseList="@allExercises"></DiscoveryExerciseComponent>
+    </div>
+</div>
+
+@code {
+    List<string> allExercises = new List<string>()
+        {
+            "Bench Press",
+            "Bicep Curl",
+            "Calf Raise",
+            "Deadlift",
+            "Dips",
+            "Dumbell Flys",
+            "L-sit",
+            "Lat Pull-Down",
+            "Leg raise",
+            "Lunge",
+            "Plank",
+            "Pull up",
+            "Push up",
+            "Seated Row",
+            "Sit up",
+            "Squat"
+        };
+}

@@ -1,0 +1,46 @@
+﻿
+<div class="exercise">
+    <div class="title-container">
+        <span class="exercise-title">@routine_exercise_name</span>
+    </div>
+    <div class="tracker">
+        <div class="inputs">
+            <div class="set-container">
+                <div class="input-container">
+                    <label class="input-labels" for="reps">REPS</label>
+                    <input type="number" name="reps-1" value="10">
+                </div>
+                <div class="input-container">
+                    <label class="input-labels" for="reps">LBS</label>
+                    <input type="number" name="reps-1" value="60">
+                </div>
+            </div>
+            <div class="set-container">
+                <div class="input-container">
+                    <label class="input-labels" for="reps">REPS</label>
+                    <input type="number" name="reps-1" value="10">
+                </div>
+                <div class="input-container">
+                    <label class="input-labels" for="reps">LBS</label>
+                    <input type="number" name="reps-1" value="50">
+                </div>
+            </div>
+            <div class="set-container">
+                <div class="input-container">
+                    <label class="input-labels" for="reps">REPS</label>
+                    <input type="number" name="reps-1" value="10">
+                </div>
+                <div class="input-container">
+                    <label class="input-labels" for="reps">LBS</label>
+                    <input type="number" name="reps-1" value="40">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@code {
+    [Parameter]
+    public string routine_exercise_name { get; set; } = "Routine Name";
+}

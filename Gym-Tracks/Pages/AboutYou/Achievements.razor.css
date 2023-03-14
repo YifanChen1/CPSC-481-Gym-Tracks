@@ -1,0 +1,141 @@
+﻿.main-container {
+    position: relative;
+    height: 725px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.content-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    width: 348px;
+    height: 678px;
+    position: relative;
+    padding: 22px;
+    margin: 26px 0;
+    flex: 1; /* Allows item to grow inside of main container */
+    background: #383838;
+    box-shadow: inset 0px 0px 4px 1px rgba(0, 0, 0, 0.25);
+}
+.date-container {
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right:10px;
+    position: relative;
+    width: 340px;
+    height: 30px;
+    border-bottom: 1px solid #A09C5B;
+    display: flex;
+    text-align: left
+}
+.content-container span {
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 22px;
+    /* identical to box height */
+
+    text-align: left;
+    color: #A09C5B;
+}
+
+.title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+}
+
+.container {
+    position: relative;
+    width: 312px;
+    height: 40px;
+    background: #FFD700;
+    box-shadow: 0px -5px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container span {
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 22px;
+    /* identical to box height */
+
+    text-align: center;
+    vertical-align: middle;
+    color: #000000;
+}
+/*
+.datecontainer ul {
+    display: flex;
+    width: 312px;
+    flex-wrap: wrap;
+    padding-left: 0;
+}
+
+    .datecontainer ul li{
+        list-style: none;
+        flex: 33%;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        width: 50px;
+        height: 100px;
+        border-radius: 50%;
+        background: #FFD700;
+        box-shadow: 0px 0px 0px 4px rgba(0, 0, 0, 0.25);
+        font-family: "Inter";
+        font-style: normal;
+        font-weight: 700;
+        font-size: 22px;
+    }
+        .datecontainer ul li img {
+            height: 30px;
+            width: 30px;
+        }
+*/
+
+
+.flex-container {
+    justify-content:center;
+    display:flex;
+    flex-wrap:wrap;
+    text-align:center;
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 22px;
+}
+.flex-container > div{
+    flex: 25%;
+    margin-bottom:15px;
+    margin-left:5px;
+    margin-right:5px;
+    margin-top:15px;
+}
+.circle{
+        border-radius: 50%;
+        background: #FFD700;
+        width: 250px;
+        height:92px;
+ }
+
+.flex-container img{
+        height:60px;
+        width: 60px;
+ }
+
+.hr {
+    border: 0;
+    clear: both;
+    display: block;
+    width: 96%;
+    height: 1px;
+    background-color: #A09C5B;
+}

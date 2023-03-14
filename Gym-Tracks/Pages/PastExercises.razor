@@ -1,0 +1,41 @@
+@page "/activity/{year}/{month}/{day}"
+
+
+<TitleComponent title="Activity"/>
+
+<div class="main-container">
+    <div class="content-container">
+        <div class="calendar-controls">
+            <button onclick="">&lt</button>
+            <button class="center-btn" onclick="">@center_btn_content</button>
+            <button onclick="">&gt</button>
+        </div>
+
+        <DateComponent/>
+    </div>
+</div>
+
+
+
+
+@code{
+    [Parameter]
+    public string year {get; set;} = "";
+    [Parameter]
+    public string month {get; set;} = "";
+    private int month_int;
+    [Parameter]
+    public string day {get; set;} = "";
+
+    private string center_btn_content;
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+
+        Int32.TryParse(month, out month_int);
+
+        String[] months = {"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"};
+        center_btn_content = String.Format("{0} {1}", months[month_int], day);
+    }
+}

@@ -1,0 +1,25 @@
+@page "/backExercises"
+
+   
+
+<TitleComponent title="Discover"/>
+
+<div class="main-container">
+    <div class="content-container">
+        <div class="exercise-type-container">
+            <span>BACK EXERCISES</span>
+        </div>
+        <DiscoveryExerciseComponent exerciseList="@backExercises"></DiscoveryExerciseComponent>
+    </div>
+</div>
+
+@code {
+    List<string> backExercises = new List<string>()
+        {
+            "Deadlift",
+            "Lat Pull-Down",
+            "Pull-Up",
+            "Seated Row"
+            
+        };
+}

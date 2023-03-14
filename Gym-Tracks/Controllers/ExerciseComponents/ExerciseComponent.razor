@@ -1,0 +1,117 @@
+@if (AppService.GetExerciseIndex(exercise_name) != -1)
+{
+    <div class="exercise">
+    <div class="title-container">
+        <span class="exercise-title">@exercise_name</span>
+        <button class="btn"
+                @onclick="DeleteExercise">remove</button>
+    </div>
+    <div class="tracker">
+        <div class="inputs">
+            @{
+                var Exercise = AppService.GetExercise(exercise_name);
+            }
+            @for (int i = 0; i < Exercise.getSets().Count; i++)
+                {
+                    var setNum = i;
+                    <div class="set-container">
+                        <div class="input-container">
+                            <label class="input-labels"
+                           for="reps">REPS</label>
+                            <input type="number"
+                           name="reps-@i"
+                           cols="3"
+                           placeholder="10"
+                           value="@(sets[setNum].reps!=0
+                           ?
+                           sets[setNum].reps
+                           :
+                            ""
+                           )"
+                           @onchange="(e => UpdateReps(e.Value.ToString(), setNum))">
+                        </div>
+                        <div class="
+                           input-container">
+                            <label class="input-labels"
+                           for="reps">LBS</label>
+                            <input type="number"
+                           name="lbs-@i"
+                           placeholder="135"
+                           value="@(sets[setNum].weight!=0
+                           ?
+                           sets[setNum].weight
+                           :
+                            ""
+                           )"
+                           @onchange="(e => UpdateWeight(e.Value.ToString(), setNum))">
+                        </div>
+                    </div>
+                }
+            </div>
+
+            <div class="controls">
+                <button class="set-btn"
+                    @onclick="CompleteSet">COMPLETE SET</button>
+            </div>
+        </div>
+    </div>
+}
+
+
+@code {
+
+    [Inject]
+    private IAppService AppService { get; set; }
+
+    [Parameter]
+    public string exercise_name { get; set; } = "Exercise Name";
+
+    private List<Set> sets;
+
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        if (AppService.GetExerciseIndex(exercise_name) != -1)
+        {
+            this.sets = AppService.GetExercise(exercise_name).getSets();
+        }
+    }
+
+
+    private void UpdateReps(string value, int index)
+    {
+
+        AppService.addRepData(exercise_name, Int32.Parse(value), index);
+        this.sets = AppService.GetExercise(exercise_name).getSets();
+        Console.WriteLine("Update Reps!");
+
+    }
+
+    private void UpdateWeight(string value, int index)
+    {
+        AppService.addWeightData(exercise_name, Int32.Parse(value), index);
+        this.sets = AppService.GetExercise(exercise_name).getSets();
+        Console.WriteLine("Update Weight!");
+
+    }
+
+    private void CompleteSet()
+    {
+        AppService.CompleteSet(exercise_name, 10, 135);
+
+        this.sets = AppService.GetExercise(exercise_name).getSets();
+    }
+
+    private void DeleteExercise()
+    {
+        Console.WriteLine("Delete!");
+        AppService.RemoveExercise(exercise_name);
+    }
+
+
+
+
+
+
+}

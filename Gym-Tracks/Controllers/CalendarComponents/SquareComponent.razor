@@ -1,0 +1,55 @@
+
+
+<div class="square">
+    <div class="activity-bubble" style="@activity_style" @onclick="SetDay" >
+        <div class="square-info" style="@text_style">@content</div>
+    </div>
+    
+</div>
+
+
+
+@code {
+    public string content = "";
+    [Parameter]
+    public int day {get; set;} = -1;
+
+    [Parameter]
+    public string activity_color {get; set;} = "none";
+
+    [Parameter]
+    public EventCallback<MouseEventArgs> OnClickCallback { get; set; }
+
+    [Parameter]
+    public EventCallback<int> SetSelectedDay {get; set;}
+    
+
+
+    private string activity_style = "0";
+    private string text_style = "color: white";
+
+
+    protected override void OnParametersSet()
+    {
+        base.OnParametersSet();
+        if (string.Compare(activity_color, "none") == 0)
+        {
+            activity_style = $"background-color: none;";
+            text_style = "color: white;";
+        }
+        else
+        {
+            activity_style = $"background-color: {activity_color}";
+            text_style = "color: black;";
+        }
+
+        if (day != -1){
+            content = day.ToString();
+        }
+    }
+
+    private void SetDay(){
+        SetSelectedDay.InvokeAsync(day);
+    }
+
+}

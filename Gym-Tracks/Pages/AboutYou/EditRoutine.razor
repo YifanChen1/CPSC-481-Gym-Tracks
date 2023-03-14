@@ -1,0 +1,21 @@
+@page "/editRoutine"
+@using Gym_Tracks.Controllers.RoutineComponents
+@inherits RoutineBase
+
+<TitleComponent title="Routine" />
+
+<div class="main-container">
+    <div class="content-container">
+        <div class="container">
+            <span>Push-Day</span>
+        </div>
+            <RoutineComponent routine_exercise_name="Shoulder Press"></RoutineComponent>
+            <RoutineComponent routine_exercise_name="Bench Press"></RoutineComponent>
+            <div class="dropdown">
+                <button class="add-btn"><img src="images/plus.png" alt="Add Img" /></button>
+                <div class="dropdown-content">
+                    <a href="/discover">Add Exercise</a>
+                </div>
+            </div>
+    </div>
+</div>
